@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+*.db
+*.geojson
+*.csv
+*.html
+!static/index.html
+server.log

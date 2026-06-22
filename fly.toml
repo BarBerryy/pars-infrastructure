@@ -1,0 +1,26 @@
+# Конфигурация Fly.io. Имя приложения (app) должно быть глобально уникальным —
+# поменяй на своё перед деплоем (или задай при `fly launch`).
+app = "pars-openstreetmap"
+primary_region = "fra"   # Франкфурт (близко к РФ/СНГ). Другие: waw, arn, cdg
+
+[build]
+
+[env]
+  DB_PATH = "/data/osm_poi.db"   # БД на постоянном томе — история не теряется
+  PORT = "8000"
+
+[http_service]
+  internal_port = 8000
+  force_https = true
+  auto_stop_machines = "suspend"  # «засыпает» при простое (бесплатно), будит за ~1 c
+  auto_start_machines = true
+  min_machines_running = 0        # поставь 1, если нужен always-on (без задержки старта)
+
+# Постоянный том для SQLite (создаётся отдельно: fly volumes create data ...)
+[[mounts]]
+  source = "data"
+  destination = "/data"
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "512mb"

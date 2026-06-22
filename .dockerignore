@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+*.db
+*.geojson
+*.csv
+*.xlsx
+*.html
+!static/index.html
+server.log
+.git/
