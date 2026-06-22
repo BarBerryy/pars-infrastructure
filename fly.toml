@@ -1,6 +1,6 @@
 # Конфигурация Fly.io. Имя приложения (app) должно быть глобально уникальным —
 # поменяй на своё перед деплоем (или задай при `fly launch`).
-app = "pars-openstreetmap"
+app = "pars-openstreetmap-4infrastructure"
 primary_region = "fra"   # Франкфурт (близко к РФ/СНГ). Другие: waw, arn, cdg
 
 [build]
