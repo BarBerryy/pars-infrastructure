@@ -161,8 +161,10 @@ const CLOSE_PX = 14;        // радиус авто-замыкания к пе�
 const markersLayer = L.layerGroup();
 
 const map = L.map('map').setView([55.7961, 49.1064], 11);  // по умолчанию — Казань
+map.attributionControl.setPrefix(false);  // убираем приписку «Leaflet» (атрибуцию OSM оставляем — требование лицензии)
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  maxZoom: 19, attribution: '&copy; OpenStreetMap contributors'
+  maxZoom: 19,
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>'
 }).addTo(map);
 markersLayer.addTo(map);
 
